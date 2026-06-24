@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap');
+
+:root {
+    --branco: #FFFFFF;
+    --cor-de-fundo: #020A13; /* Fundo ultra escuro do Figma */
+    --fundo-caixa: #091522; /* Azul escuro do container principal */
+    --fundo-input: #0E2439; /* Azul destacado do campo de senha */
+    --borda: #16324F;
+    --azul-botoes: #0066FF;
+    --vermelho-fraca: #FF3B30;
+    --roboto-mono: 'Roboto Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--cor-de-fundo);
+    color: var(--branco);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container principal */
+.conteudo {
+    width: 100%;
+    max-width: 720px;
+    background-color: var(--fundo-caixa);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 40px;
+}
+
+/* Topo do gerador */
+.conteudo-titulo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.cadeado-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--azul-botoes);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.titulo-principal {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+}
+
+.titulo-secundario {
+    font-size: 14px;
+    color: #6C7A89;
+    font-weight: normal;
+}
+
+/* Campo de exibição da Senha (Estilo faixa azul central) */
+.campo-senha {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 35px;
+}
+
+.campo-senha label {
+    font-family: var(--roboto-mono);
+    font-size: 11px;
+    color: #52667A;
+    text-transform: uppercase;
+}
+
+.campo-texto {
+    background-color: var(--fundo-input);
+    border: 1px solid #1E4670;
+    border-radius: 6px;
+    padding: 18px 20px;
+    color: var(--branco);
+    font-family: var(--roboto-mono);
+    font-size: 22px;
+    font-weight: bold;
+    width: 100%;
+    outline: none;
+    letter-spacing: 1px;
+}
+
+/* Título da seção inferior */
+.personalize-titulo {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Flexbox das 3 Colunas Alinhadas Lateralmente */
+.parametro-senha {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.parametro-senha__coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+}
+
+.parametro-senha__titulo {
+    font-size: 12px;
+    color: #52667A;
+    font-weight: normal;
+}
+
+/* Coluna 1: Contador */
+.parametro-senha__botoes {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--cor-de-fundo);
+    border: 1px solid var(--borda);
+    padding: 6px 12px;
+    border-radius: 6px;
+    width: fit-content;
+}
+
+.parametro-senha__botao {
+    background-color: transparent;
+    color: var(--azul-botoes);
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.parametro-senha__texto {
+    font-family: var(--roboto-mono);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Coluna 2: Checkboxes (Evita quebras de linha) */
+.caracteristicas-grupo {
+    gap: 10px;
+}
+
+.checkbox-linha {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-linha label {
+    font-size: 14px;
+    color: #D1D5DB;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.checkbox {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--azul-botoes);
+    cursor: pointer;
+}
+
+/* Coluna 3: Barra de Força */
+.barra-forca {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.barra-forca__bloco {
+    width: 100%;
+    height: 12px;
+    background-color: #16222F;
+    border-radius: 2px;
+    position: relative;
+}
+
+.barra-forca__bloco.fraca::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 33.3%;
+    background-color: var(--vermelho-fraca);
+    border-radius: 2px 0 0 2px;
+}
+
+.barra-forca__legendas {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.legenda {
+    font-size: 11px;
+    color: #435366;
+}
+
+.legenda.status-ativa {
+    color: var(--branco);
+    font-weight: bold;
+}
+/* Cores extras da barra de força que o JavaScript vai ativar */
+:root {
+    --amarelo-media: #FFCC00;
+    --verde-forte: #34C759;
+}
+
+/* Quando for Média, o bloco preenche até a metade (66.6%) e fica amarelo */
+.barra-forca__bloco.media::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 66.6%;
+    background-color: var(--amarelo-media);
+    border-radius: 2px 0 0 2px;
+}
+
+/* Quando for Forte, o bloco preenche 100% e fica verde */
+.barra-forca__bloco.forte::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--verde-forte);
+    border-radius: 2px;
+}
